@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Disallow: /*?*
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-content/plugins/
+Disallow: /wp-content/themes/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /my-account/
+Disallow: /wishlist/
+
+Sitemap: https://hatem-alnajar.com/sitemap.xml

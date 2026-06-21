@@ -1,0 +1,41 @@
+# hatem-alnajar.com — عيادة الدكتور حاتم النجار
+
+> عيادة أ.د. حاتم النجار — استشاري الجراحة العامة والمناظير والأورام والغدد في مصر الجديدة، القاهرة.
+
+## الصفحات الرئيسية
+
+- الرئيسية: https://hatem-alnajar.com/
+- عن الدكتور: https://hatem-alnajar.com/about
+- التخصصات: https://hatem-alnajar.com/services
+- اتصل بنا: https://hatem-alnajar.com/contact
+- الأسئلة الشائعة: https://hatem-alnajar.com/faq
+- المدونة: https://hatem-alnajar.com/blog
+- سياسة الخصوصية: https://hatem-alnajar.com/privacy
+- الشروط والأحكام: https://hatem-alnajar.com/terms
+
+## التخصصات
+
+- الجراحة العامة: https://hatem-alnajar.com/services/general-surgery
+- جراحة المناظير: https://hatem-alnajar.com/services/laparoscopic-surgery
+- جراحات السمنة المفرطة: https://hatem-alnajar.com/services/bariatric-surgery
+- جراحة الشرج والمستقيم: https://hatem-alnajar.com/services/colorectal-surgery
+- جراحة الأورام: https://hatem-alnajar.com/services/oncology-surgery
+- جراحة الغدد الصماء: https://hatem-alnajar.com/services/endocrine-surgery
+
+## المقالات الطبية
+
+- علاج البواسير بالليزر: https://hatem-alnajar.com/blog/laser-hemorrhoids
+- التطورات الحديثة في جراحة المناظير: https://hatem-alnajar.com/blog/laparoscopic-advances
+- جراحات السمنة: https://hatem-alnajar.com/blog/bariatric-surgery-guide
+- سرطان القولون: https://hatem-alnajar.com/blog/colon-cancer-early-detection
+- الغدة الدرقية: https://hatem-alnajar.com/blog/thyroid-surgery-guide
+
+## التواصل
+
+- الهاتف / واتساب: +20 11 3018 1737
+- البريد: info@hatem-alnajar.com
+- العنوان: ١ شارع إبراهيم باشا، الحي المنتزه، مصر الجديدة، القاهرة، مصر
+
+## Sitemap
+
+https://hatem-alnajar.com/sitemap.xml

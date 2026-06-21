@@ -1,0 +1,117 @@
+# hatem-alnajar.com — static React site (generated from redirects.ts)
+Options -Indexes
+DirectoryIndex index.html
+
+RewriteEngine On
+
+# --- 1. 410 Gone: spam keyword patterns ---
+RewriteCond %{REQUEST_URI} casino [NC]
+RewriteRule .* - [G,L]
+
+RewriteCond %{REQUEST_URI} betting [NC]
+RewriteRule .* - [G,L]
+
+RewriteCond %{REQUEST_URI} slot [NC]
+RewriteRule .* - [G,L]
+
+RewriteCond %{REQUEST_URI} igaming [NC]
+RewriteRule .* - [G,L]
+
+RewriteCond %{REQUEST_URI} vavada [NC]
+RewriteRule .* - [G,L]
+
+RewriteCond %{REQUEST_URI} pin-up [NC]
+RewriteRule .* - [G,L]
+
+RewriteCond %{REQUEST_URI} 1win [NC]
+RewriteRule .* - [G,L]
+
+RewriteCond %{REQUEST_URI} escort [NC]
+RewriteRule .* - [G,L]
+
+RewriteCond %{REQUEST_URI} porn [NC]
+RewriteRule .* - [G,L]
+
+RewriteCond %{REQUEST_URI} darknet [NC]
+RewriteRule .* - [G,L]
+
+RewriteCond %{REQUEST_URI} omegle [NC]
+RewriteRule .* - [G,L]
+
+RewriteCond %{REQUEST_URI} kazino [NC]
+RewriteRule .* - [G,L]
+
+RewriteCond %{REQUEST_URI} ringospin [NC]
+RewriteRule .* - [G,L]
+
+RewriteCond %{REQUEST_URI} listcrawlers [NC]
+RewriteRule .* - [G,L]
+
+# --- 2. 410 Gone: exact demo/spam paths ---
+RewriteRule ^shop/?$ - [G,L]
+RewriteRule ^shop/?$ - [G,L]
+RewriteRule ^cart/?$ - [G,L]
+RewriteRule ^cart/?$ - [G,L]
+RewriteRule ^checkout/?$ - [G,L]
+RewriteRule ^checkout/?$ - [G,L]
+RewriteRule ^my-account/?$ - [G,L]
+RewriteRule ^my-account/?$ - [G,L]
+RewriteRule ^wishlist/?$ - [G,L]
+RewriteRule ^wishlist/?$ - [G,L]
+RewriteRule ^our-doctor/?$ - [G,L]
+RewriteRule ^doctor-detail/?$ - [G,L]
+RewriteRule ^location/?$ - [G,L]
+RewriteRule ^testimonial/?$ - [G,L]
+RewriteRule ^make-appoitment/?$ - [G,L]
+RewriteRule ^schedule/?$ - [G,L]
+RewriteRule ^billing-and-insurance/?$ - [G,L]
+RewriteRule ^our-history/?$ - [G,L]
+RewriteRule ^our-commitment/?$ - [G,L]
+RewriteRule ^blog-full-width/?$ - [G,L]
+RewriteRule ^home-2/?$ - [G,L]
+RewriteRule ^home-3/?$ - [G,L]
+RewriteRule ^home-4/?$ - [G,L]
+RewriteRule ^home-1-onepage/?$ - [G,L]
+RewriteRule ^home-2-onepage/?$ - [G,L]
+RewriteRule ^home-3-onepage/?$ - [G,L]
+RewriteRule ^home-4-onepage/?$ - [G,L]
+RewriteRule ^case-study-1/?$ - [G,L]
+RewriteRule ^case-study-2/?$ - [G,L]
+RewriteRule ^case-study-3/?$ - [G,L]
+RewriteRule ^case-study-4/?$ - [G,L]
+RewriteRule ^sample-page/?$ - [G,L]
+RewriteRule ^portfolio/?$ - [G,L]
+RewriteRule ^portfolio/?$ - [G,L]
+RewriteRule ^case-study/?$ - [G,L]
+RewriteRule ^case-study/?$ - [G,L]
+
+# --- 3. 301 redirects: legitimate old URLs ---
+RewriteRule ^about-us/?$ /about [R=301,L]
+RewriteRule ^about-us/?$ /about [R=301,L]
+RewriteRule ^contact-us/?$ /contact [R=301,L]
+RewriteRule ^contact-us/?$ /contact [R=301,L]
+RewriteRule ^faqs/?$ /faq [R=301,L]
+RewriteRule ^faqs/?$ /faq [R=301,L]
+RewriteRule ^home-1-2/?$ / [R=301,L]
+RewriteRule ^home-1-2/?$ / [R=301,L]
+RewriteRule ^service/general-surgery/?$ /services/general-surgery [R=301,L]
+RewriteRule ^service/radiology/?$ /services/laparoscopic-surgery [R=301,L]
+RewriteRule ^service/orthopedics/?$ /services/bariatric-surgery [R=301,L]
+RewriteRule ^service/dental-care/?$ /services/colorectal-surgery [R=301,L]
+RewriteRule ^service/pharmacology/?$ /services/oncology-surgery [R=301,L]
+RewriteRule ^service/hematology/?$ /services/endocrine-surgery [R=301,L]
+RewriteRule ^%d8%b9%d9%84%d8%a7%d8%ac-%d8%a7%d9%84%d8%a8%d9%88%d8%a7%d8%b3%d9%8a%d8%b1-%d8%a8%d8%a7%d9%84%d9%84%d9%8a%d8%b2%d8%b1-%d9%86%d9%87%d8%a7%d9%8a%d8%a9-%d8%b9%d8%b5%d8%b1-%d8%a7%d9%84%d8%a3%d9%84%d9%85/?$ /blog/laser-hemorrhoids [R=301,L,NE]
+RewriteRule ^%d8%a7%d9%84%d8%aa%d8%b7%d9%88%d8%b1%d8%a7%d8%aa-%d8%a7%d9%84%d8%ad%d8%af%d9%8a%d8%ab%d8%a9-%d9%81%d9%8a-%d8%ac%d8%b1%d8%a7%d8%ad%d8%a9-%d8%a7%d9%84%d9%85%d9%86%d8%a7%d8%b8%d9%8a%d8%b1-%d8%ab%d9%88/?$ /blog/laparoscopic-advances [R=301,L,NE]
+RewriteRule ^%d8%ac%d8%b1%d8%a7%d8%ad%d8%a7%d8%aa-%d8%a7%d9%84%d8%b3%d9%85%d9%86%d8%a9-%d8%a3%d9%83%d8%b1%d9%87-%d9%85%d9%86-%d9%85%d8%ac%d8%b1%d8%af-%d9%81%d9%82%d8%af%d8%a7%d9%86-%d8%a7%d9%84%d9%88%d8%b2%d9%86/?$ /blog/bariatric-surgery-guide [R=301,L,NE]
+RewriteRule ^%d8%b3%d8%b1%d8%b7%d8%a7%d9%86-%d8%a7%d9%84%d9%82%d9%88%d9%84%d9%88%d9%86-%d8%a7%d9%84%d8%a7%d9%83%d8%aa%d8%b4%d8%a7%d9%81-%d8%a7%d9%84%d9%85%d8%a8%d9%83%d8%b1-%d9%8a%d9%86%d9%82%d8%b0-%d8%a7%d9%84%d8%a3%d8%b1%d9%88%d8%a7%d8%ad/?$ /blog/colon-cancer-early-detection [R=301,L,NE]
+RewriteRule ^%d8%a7%d9%84%d8%ba%d8%af%d8%a9-%d8%a7%d9%84%d8%af%d8%b1%d9%82%d9%8a%d8%a9-%d9%85%d8%aa%d9%89-%d8%aa%d8%ad%d8%aa%d8%a7%d8%ac-%d9%84%d9%84%d8%ac%d8%b1%d8%a7%d8%ad%d8%a9/?$ /blog/thyroid-surgery-guide [R=301,L,NE]
+RewriteRule ^%d8%b3%d9%8a%d8%a7%d8%b3%d8%a9-%d8%a7%d9%84%d8%ae%d8%b5%d9%88%d8%b5%d9%8a%d8%a9/?$ /privacy [R=301,L,NE]
+RewriteRule ^%d8%a7%d9%84%d8%b4%d8%b1%d9%88%d8%b7-%d9%88%d8%a7%d9%84%d8%a3%d8%ad%d9%83%d8%a7%d9%85/?$ /terms [R=301,L,NE]
+
+# --- 4. Static files & prerendered routes ---
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# --- 5. SPA fallback for unknown client routes ---
+RewriteRule ^ index.html [L]
