@@ -9,9 +9,10 @@ import { absoluteUrl, buildMeta, type PageMeta } from './meta';
 import {
   breadcrumbList,
   clinicEntity,
+  doctorEntity,
   graph,
   organizationEntity,
-  physicianEntity,
+  serviceEntity,
   webPageEntity,
   websiteEntity,
 } from './schema';
@@ -25,21 +26,15 @@ function homeSchema(): Record<string, unknown> {
   return graph(
     organizationEntity(),
     clinicEntity(),
-    physicianEntity(),
+    doctorEntity(),
     websiteEntity(),
     webPageEntity(pages.home.title, '/', pages.home.description),
-    {
-      '@type': 'MedicalClinic',
-      '@id': `${absoluteUrl('/')}#homepage-clinic`,
-      name: site.siteNameAr,
-      url: absoluteUrl('/'),
-    },
   );
 }
 
 function aboutSchema(): Record<string, unknown> {
   return graph(
-    physicianEntity(),
+    doctorEntity(),
     clinicEntity(),
     {
       '@type': 'AboutPage',
@@ -47,14 +42,14 @@ function aboutSchema(): Record<string, unknown> {
       name: pages.about.titleAr,
       description: pages.about.description,
       url: absoluteUrl('/about'),
-      mainEntity: { '@id': `${absoluteUrl('/')}#physician` },
+      mainEntity: { '@id': `${absoluteUrl('/')}#doctor` },
     },
     {
       '@type': 'ProfilePage',
       '@id': `${absoluteUrl('/about')}#profile`,
       name: pages.about.titleAr,
       url: absoluteUrl('/about'),
-      mainEntity: { '@id': `${absoluteUrl('/')}#physician` },
+      mainEntity: { '@id': `${absoluteUrl('/')}#doctor` },
     },
     breadcrumbList([
       { name: 'الرئيسية', path: '/' },
@@ -92,21 +87,8 @@ function servicesIndexSchema(): Record<string, unknown> {
 function serviceDetailSchema(service: ServiceContent): Record<string, unknown> {
   return graph(
     clinicEntity(),
-    physicianEntity(),
-    {
-      '@type': 'MedicalProcedure',
-      '@id': `${absoluteUrl(`/services/${service.slug}`)}#procedure`,
-      name: service.titleAr,
-      description: service.description,
-      url: absoluteUrl(`/services/${service.slug}`),
-      procedureType: service.titleAr,
-      howPerformed: service.fullDescriptionAr,
-      provider: { '@id': `${absoluteUrl('/')}#clinic` },
-      areaServed: {
-        '@type': 'City',
-        name: 'Cairo',
-      },
-    },
+    doctorEntity(),
+    serviceEntity(service.slug, service.titleAr, service.description, service.titleAr),
     webPageEntity(service.title, `/services/${service.slug}`, service.description),
     breadcrumbList([
       { name: 'الرئيسية', path: '/' },
