@@ -1,9 +1,11 @@
-import { site, telUrl, whatsappUrl } from '../../content/site';
+import { telUrl, whatsappUrl } from '../../content/site';
+import { trackPhoneCallClick, trackWhatsAppClick } from '../../lib/tracking';
+import { PhoneNumber } from '../ui/PhoneNumber';
 
 export function MobileCTABar() {
   return (
     <div
-      className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 p-3 backdrop-blur-md md:hidden"
+      className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur-md md:hidden"
       role="region"
       aria-label="إجراءات سريعة"
     >
@@ -11,6 +13,7 @@ export function MobileCTABar() {
         <a
           href={telUrl}
           className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-navy-900 py-3 text-sm font-medium text-white transition-colors hover:bg-navy-800"
+          onClick={() => trackPhoneCallClick('mobile_sticky_cta', telUrl)}
         >
           <PhoneIcon />
           اتصال
@@ -20,12 +23,15 @@ export function MobileCTABar() {
           target="_blank"
           rel="noreferrer noopener"
           className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#25D366] py-3 text-sm font-medium text-white transition-colors hover:bg-[#1fb855]"
+          onClick={() => trackWhatsAppClick('mobile_sticky_cta', whatsappUrl)}
         >
           <WhatsAppIcon />
           واتساب
         </a>
       </div>
-      <p className="sr-only">الهاتف: {site.phoneDisplay}</p>
+      <p className="sr-only">
+        الهاتف: <PhoneNumber />
+      </p>
     </div>
   );
 }

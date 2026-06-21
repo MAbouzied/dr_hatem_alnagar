@@ -51,10 +51,16 @@ export interface SiteConfig {
   images: SiteImage[];
 }
 
+export interface PageSectionGroup {
+  title: string;
+  items: string[];
+}
+
 export interface PageSection {
   heading?: string;
   body?: string;
   items?: string[];
+  groups?: PageSectionGroup[];
 }
 
 export interface PageContent extends SeoFields {
@@ -97,15 +103,10 @@ export interface ArticleContent extends SeoFields {
   datePublished: string;
   readingTimeMinutes: number;
   relatedServiceId: string;
-}
-
-export interface LegalDocument extends SeoFields {
-  slug: string;
-  titleAr: string;
-  effectiveDate?: string;
-  lastUpdated?: string;
-  bodyMarkdown: string;
-  editsNote?: string;
+  /** Service icon or vetted image for article hero */
+  heroIconPath?: string;
+  heroImagePath?: string;
+  heroImageAlt?: string;
 }
 
 export interface Redirect301 {

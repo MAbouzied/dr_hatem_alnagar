@@ -1,5 +1,6 @@
 node_modules/
 dist/
+dist/server/
 *.log
 .DS_Store
 .env
@@ -9,3 +10,9 @@ dist/
 *.tar
 *.tar.gz
 *.zip
+domains/
+public_html/
+wp-admin/
+wp-content/
+wp-includes/
+*.php

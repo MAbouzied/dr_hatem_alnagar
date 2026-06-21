@@ -1,7 +1,8 @@
 import { Link, useParams } from 'react-router-dom';
 import { getArticleBySlug } from '../content/articles';
 import { getServiceBySlug } from '../content/services';
-import { telUrl, whatsappUrl } from '../content/site';
+import { whatsappUrl } from '../content/site';
+import { CallButton } from '../components/ui/CallButton';
 import { Breadcrumb } from '../components/ui/Breadcrumb';
 import { Button } from '../components/ui/Button';
 import { CtaBlock } from '../components/ui/CtaBlock';
@@ -107,18 +108,16 @@ export function ServiceDetailPage() {
               <p className="text-sm leading-7 text-slate-600">
                 {service.ctaTextAr} — تواصل مع العيادة لتحديد موعد يناسبك.
               </p>
-              <Button href={whatsappUrl} external variant="whatsapp" className="w-full">
+              <Button href={whatsappUrl} external variant="whatsapp" className="w-full" trackingLocation="service_detail_sidebar">
                 {service.ctaTextAr}
               </Button>
-              <Button href={telUrl} variant="secondary" className="w-full">
-                اتصال مباشر
-              </Button>
+              <CallButton theme="light" fullWidth trackingLocation="service_detail_sidebar" />
             </div>
           </aside>
         </div>
 
         <div className="mt-12">
-          <CtaBlock />
+          <CtaBlock trackingLocation="service_detail_bottom_cta" />
         </div>
       </div>
     </>

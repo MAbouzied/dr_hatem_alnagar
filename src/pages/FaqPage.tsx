@@ -22,7 +22,7 @@ export function FaqPage() {
       </Section>
 
       <div className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
-        <CtaBlock title="لم تجد إجابتك؟" subtitle="تواصل معنا مباشرة وسنسعد بالإجابة على استفساراتك" />
+        <CtaBlock title="لم تجد إجابتك؟" subtitle="تواصل معنا مباشرة وسنسعد بالإجابة على استفساراتك" trackingLocation="faq_bottom_cta" />
       </div>
     </>
   );

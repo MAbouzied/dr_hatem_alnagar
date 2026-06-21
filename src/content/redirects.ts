@@ -69,13 +69,13 @@ export const redirects: RedirectsConfig = {
     },
     {
       from: '/%d8%b3%d9%8a%d8%a7%d8%b3%d8%a9-%d8%a7%d9%84%d8%ae%d8%b5%d9%88%d8%b5%d9%8a%d8%a9/',
-      to: '/privacy',
-      reason: 'Arabic privacy policy URL',
+      to: '/',
+      reason: 'Legacy Arabic privacy policy URL (page removed)',
     },
     {
       from: '/%d8%a7%d9%84%d8%b4%d8%b1%d9%88%d8%b7-%d9%88%d8%a7%d9%84%d8%a3%d8%ad%d9%83%d8%a7%d9%85/',
-      to: '/terms',
-      reason: 'Arabic terms URL',
+      to: '/',
+      reason: 'Legacy Arabic terms URL (page removed)',
     },
   ],
 

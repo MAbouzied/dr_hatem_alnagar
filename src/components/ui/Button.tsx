@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { type ClickLocation, isPhoneHref, isWhatsAppHref, trackPhoneCallClick, trackWhatsAppClick } from '../../lib/tracking';
 
 type ButtonVariant = 'primary' | 'secondary' | 'whatsapp' | 'ghost';
 type ButtonSize = 'sm' | 'md' | 'lg';
@@ -24,6 +25,7 @@ interface ButtonBaseProps {
   size?: ButtonSize;
   className?: string;
   children: React.ReactNode;
+  trackingLocation?: ClickLocation;
 }
 
 interface ButtonAsButton extends ButtonBaseProps {
@@ -51,6 +53,7 @@ export function Button({
   size = 'md',
   className = '',
   children,
+  trackingLocation,
   ...props
 }: ButtonProps) {
   const classes = `inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-all duration-200 ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
@@ -65,11 +68,22 @@ export function Button({
 
   if ('href' in props && props.href) {
     const external = 'external' in props && props.external;
+    const shouldTrackWhatsApp =
+      trackingLocation && (variant === 'whatsapp' || isWhatsAppHref(props.href));
+    const shouldTrackPhone = trackingLocation && isPhoneHref(props.href);
+
+    const handleClick = () => {
+      if (!trackingLocation) return;
+      if (shouldTrackWhatsApp) trackWhatsAppClick(trackingLocation, props.href);
+      else if (shouldTrackPhone) trackPhoneCallClick(trackingLocation, props.href);
+    };
+
     return (
       <a
         href={props.href}
         className={classes}
         {...(external ? { target: '_blank', rel: 'noreferrer noopener' } : {})}
+        onClick={shouldTrackWhatsApp || shouldTrackPhone ? handleClick : undefined}
       >
         {children}
       </a>

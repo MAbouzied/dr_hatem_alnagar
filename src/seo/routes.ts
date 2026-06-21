@@ -1,6 +1,5 @@
 import { getArticlesSorted, getArticleBySlug } from '../content/articles';
 import { faqs } from '../content/faqs';
-import { privacyPolicy, termsAndConditions } from '../content/legal';
 import { pages } from '../content/pages';
 import { services, getServiceBySlug } from '../content/services';
 import { site } from '../content/site';
@@ -232,16 +231,6 @@ function articleSchema(article: ArticleContent): Record<string, unknown> {
   );
 }
 
-function legalSchema(title: string, path: string, description: string): Record<string, unknown> {
-  return graph(
-    webPageEntity(title, path, description),
-    breadcrumbList([
-      { name: 'الرئيسية', path: '/' },
-      { name: title, path },
-    ]),
-  );
-}
-
 function notFoundSeo(): RouteSeo {
   return {
     meta: buildMeta({
@@ -371,32 +360,6 @@ export function getSeoForPath(pathname: string): RouteSeo {
     }
   }
 
-  if (path === '/privacy') {
-    return {
-      meta: buildMeta({
-        path,
-        title: privacyPolicy.title,
-        description: privacyPolicy.description,
-        ogType: 'website',
-        robots: 'index,follow',
-      }),
-      jsonLd: legalSchema(privacyPolicy.titleAr, '/privacy', privacyPolicy.description),
-    };
-  }
-
-  if (path === '/terms') {
-    return {
-      meta: buildMeta({
-        path,
-        title: termsAndConditions.title,
-        description: termsAndConditions.description,
-        ogType: 'website',
-        robots: 'index,follow',
-      }),
-      jsonLd: legalSchema(termsAndConditions.titleAr, '/terms', termsAndConditions.description),
-    };
-  }
-
   return notFoundSeo();
 }
 
@@ -410,8 +373,6 @@ export const PRERENDER_ROUTES = [
   '/faq',
   '/blog',
   ...getArticlesSorted().map((a) => `/blog/${a.slug}`),
-  '/privacy',
-  '/terms',
 ] as const;
 
 /** Routes included in sitemap.xml */
@@ -438,6 +399,4 @@ export const SITEMAP_ROUTES: Array<{
     changefreq: 'yearly',
     lastmod: a.datePublished,
   })),
-  { path: '/privacy', priority: '0.3', changefreq: 'yearly' },
-  { path: '/terms', priority: '0.3', changefreq: 'yearly' },
 ];

@@ -1,10 +1,12 @@
 import { pages } from '../content/pages';
-import { site, telUrl, whatsappUrl } from '../content/site';
+import { site, whatsappUrl } from '../content/site';
 import { Breadcrumb } from '../components/ui/Breadcrumb';
 import { Button } from '../components/ui/Button';
+import { CallButton } from '../components/ui/CallButton';
 import { ContactCard, ContactIcons } from '../components/ui/ContactCard';
 import { CtaBlock } from '../components/ui/CtaBlock';
 import { PageHero } from '../components/ui/PageHero';
+import { PhoneNumber } from '../components/ui/PhoneNumber';
 import { Section } from '../components/ui/Section';
 
 export function ContactPage() {
@@ -23,20 +25,19 @@ export function ContactPage() {
           <ContactCard
             icon={<ContactIcons.PhoneIcon />}
             title="الهاتف"
-            action={
-              <Button href={telUrl} variant="primary" size="sm" className="w-full">
-                {site.phoneDisplay}
-              </Button>
-            }
+            action={<CallButton theme="light" size="sm" fullWidth trackingLocation="contact_card" />}
           >
             <p>اتصل مباشرة لحجز موعد أو للاستفسارات.</p>
+            <p className="mt-2 font-medium text-navy-900">
+              <PhoneNumber />
+            </p>
           </ContactCard>
 
           <ContactCard
             icon={<ContactIcons.WhatsAppIcon />}
             title="واتساب"
             action={
-              <Button href={whatsappUrl} external variant="whatsapp" size="sm" className="w-full">
+              <Button href={whatsappUrl} external variant="whatsapp" size="sm" className="w-full" trackingLocation="contact_card">
                 مراسلة العيادة
               </Button>
             }
@@ -79,7 +80,7 @@ export function ContactPage() {
       </Section>
 
       <div className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
-        <CtaBlock title="احجز موعدك الآن" subtitle="فريقنا جاهز لمساعدتك في تحديد موعد يناسب جدولك" />
+        <CtaBlock title="احجز موعدك الآن" subtitle="فريقنا جاهز لمساعدتك في تحديد موعد يناسب جدولك" trackingLocation="contact_bottom_cta" />
       </div>
     </>
   );

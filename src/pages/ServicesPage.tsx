@@ -29,6 +29,7 @@ export function ServicesPage() {
         <CtaBlock
           title="غير متأكد من التخصص المناسب؟"
           subtitle="تواصل معنا وسنساعدك في تحديد الاستشارة المناسبة لحالتك"
+          trackingLocation="services_bottom_cta"
         />
       </div>
     </>

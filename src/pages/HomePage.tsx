@@ -3,8 +3,9 @@ import { getArticlesSorted } from '../content/articles';
 import { faqs } from '../content/faqs';
 import { pages } from '../content/pages';
 import { services } from '../content/services';
-import { site, telUrl, whatsappUrl } from '../content/site';
+import { site, whatsappUrl } from '../content/site';
 import { Button } from '../components/ui/Button';
+import { CallButton } from '../components/ui/CallButton';
 import { CtaBlock } from '../components/ui/CtaBlock';
 import { FAQAccordion } from '../components/ui/FAQAccordion';
 import { Section } from '../components/ui/Section';
@@ -22,48 +23,53 @@ export function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-bl from-navy-900 via-navy-800 to-navy-950 text-white">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-40"
-          aria-hidden
-          style={{
-            backgroundImage:
-              'radial-gradient(circle at 80% 20%, rgba(45,212,191,0.25) 0%, transparent 45%), radial-gradient(circle at 10% 90%, rgba(20,184,166,0.2) 0%, transparent 40%)',
-          }}
-        />
-        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 md:grid-cols-2 md:py-24">
-          <div className="space-y-6">
-            <span className="inline-block rounded-full bg-teal-500/20 px-4 py-1.5 text-sm font-medium text-teal-300">
-              {site.doctorNameAr}
-            </span>
-            <h1 className="text-3xl font-bold leading-tight md:text-4xl lg:text-[2.75rem] lg:leading-[1.25]">
-              {page.introAr}
-            </h1>
-            <p className="text-base leading-8 text-slate-300">{site.taglineAr}</p>
-            <div className="flex flex-wrap gap-3">
-              <Button href={whatsappUrl} external variant="whatsapp" size="lg">
-                احجز الآن عبر واتساب
-              </Button>
-              <Button href={telUrl} variant="secondary" size="lg" className="border-white/20 bg-white/10 text-white hover:bg-white/20">
-                اتصال مباشر
-              </Button>
+      <section className="relative overflow-hidden bg-gradient-to-bl from-navy-950 via-navy-900 to-navy-950 text-white py-16 md:py-24 border-b border-navy-950/35">
+        {/* Modern Medical Decorative Gradients */}
+        <div className="absolute inset-0 opacity-30 pointer-events-none" aria-hidden>
+          <div className="absolute top-[-10%] right-[-10%] h-[60%] w-[60%] rounded-full bg-teal-500/20 blur-[120px]" />
+          <div className="absolute bottom-[-10%] left-[-10%] h-[60%] w-[60%] rounded-full bg-teal-600/15 blur-[120px]" />
+        </div>
+
+        <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="grid gap-12 items-center md:grid-cols-12">
+            {/* Hero Text details */}
+            <div className="space-y-6 md:col-span-7 text-right">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-teal-500/10 border border-teal-500/20 px-4 py-1.5 text-sm font-semibold text-teal-300">
+                <span className="h-2 w-2 rounded-full bg-teal-400 animate-pulse" />
+                {site.doctorNameAr}
+              </span>
+              <h1 className="text-3xl font-bold leading-tight md:text-4xl lg:text-[2.75rem] lg:leading-[1.25] text-white">
+                {page.introAr}
+              </h1>
+              <p className="text-base leading-8 text-slate-300 border-r-2 border-teal-500/30 pr-4">
+                {site.taglineAr}
+              </p>
+              <div className="flex flex-wrap gap-4 pt-2">
+                <Button href={whatsappUrl} external variant="whatsapp" size="lg" trackingLocation="homepage_hero" className="shadow-lg shadow-emerald-950/20">
+                  احجز الآن عبر واتساب
+                </Button>
+                <CallButton theme="dark" trackingLocation="homepage_hero" />
+              </div>
             </div>
-          </div>
-          <div className="relative">
-            {/* TODO(owner): Confirm hero.png is approved official portrait before production launch */}
-            <div className="overflow-hidden rounded-3xl shadow-2xl shadow-black/30 ring-1 ring-white/10">
-              <img
-                src="/images/hero.png"
-                alt="عيادة الدكتور حاتم النجار — استشاري الجراحة العامة والمناظير"
-                className="aspect-[4/5] w-full object-cover object-top"
-                loading="eager"
-                width={560}
-                height={700}
-              />
-            </div>
-            <div className="absolute -bottom-4 -right-4 rounded-2xl bg-white px-5 py-4 text-navy-900 shadow-xl md:-bottom-6 md:-right-6">
-              <p className="text-2xl font-bold text-teal-600">+٢٥</p>
-              <p className="text-sm text-slate-600">سنة خبرة جراحية</p>
+
+            {/* Hero Portrait Image (Square / Aspect 4/5) */}
+            <div className="md:col-span-5 relative w-full flex justify-center">
+              <div className="relative w-full max-w-[420px] md:max-w-none overflow-hidden rounded-3xl shadow-2xl shadow-black/40 border border-white/10 bg-navy-950/40 p-2">
+                {/* Visual frame decoration */}
+                <div className="absolute top-2 left-2 right-2 h-1 bg-gradient-to-l from-teal-500/40 to-transparent rounded" />
+                <img
+                  src="/images/hero-square.png"
+                  alt="عيادة الدكتور حاتم النجار — استشاري الجراحة العامة والمناظير"
+                  className="w-full aspect-square object-cover block rounded-2xl"
+                  loading="eager"
+                  width={500}
+                  height={500}
+                />
+              </div>
+              <div className="absolute -bottom-4 -right-4 rounded-2xl bg-white px-5 py-4 text-navy-900 shadow-xl md:-bottom-6 md:-right-6 border border-slate-100/50 flex flex-col items-center justify-center min-w-[120px]">
+                <p className="text-3xl font-extrabold text-teal-600 font-sans leading-none">+٢٥</p>
+                <p className="text-xs font-bold text-slate-600 mt-2">سنة خبرة جراحية</p>
+              </div>
             </div>
           </div>
         </div>
@@ -71,77 +77,97 @@ export function HomePage() {
 
       {/* Trust / credentials */}
       <Section
+        variant="tint"
         title="خبرة موثوقة ورعاية متخصصة"
         subtitle="نقدم رعاية جراحية تجمع بين الخبرة الطبية العميقة والتقنيات الحديثة"
       >
         <div className="grid gap-6 md:grid-cols-3">
           {[
-            { label: 'استشاري جراحة عامة', desc: 'رئيس سابق لقسم الجراحة بالقوات المسلحة' },
-            { label: 'جراحة طفيفة التوغل', desc: 'تخصص في المناظير والأورام والغدد الصماء' },
-            { label: 'رعاية متكاملة', desc: 'متابعة شاملة قبل وبعد العمليات' },
+            {
+              label: 'استشاري جراحة عامة',
+              desc: 'رئيس سابق لقسم الجراحة العامة بالمستشفيات العسكرية بالقوات المسلحة.',
+              icon: '🏥',
+            },
+            {
+              label: 'جراحة طفيفة التوغل',
+              desc: 'استشاري المناظير المتقدمة واستئصال الأورام وجراحات الغدد الصماء والسمنة.',
+              icon: '🔬',
+            },
+            {
+              label: 'رعاية متكاملة',
+              desc: 'متابعة طبية دقيقة ومستمرة للتعافي الآمن قبل وبعد الإجراء الجراحي.',
+              icon: '🤝',
+            },
           ].map((item) => (
             <div
               key={item.label}
-              className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm"
+              className="group relative rounded-2xl border-t-4 border-t-teal-500 border-x border-b border-slate-200/80 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-teal-500/30 hover:shadow-lg hover:shadow-teal-500/5"
             >
-              <div className="mb-3 h-1 w-10 rounded-full bg-teal-500" />
-              <h3 className="font-bold text-navy-900">{item.label}</h3>
-              <p className="mt-2 text-sm leading-7 text-slate-600">{item.desc}</p>
+              <div className="mb-4 text-3xl shrink-0 select-none bg-slate-50 rounded-xl h-12 w-12 flex items-center justify-center border border-slate-100">
+                {item.icon}
+              </div>
+              <h3 className="font-extrabold text-navy-900 text-lg group-hover:text-teal-700 transition-colors duration-200">{item.label}</h3>
+              <p className="mt-3 text-sm leading-7 text-slate-600 font-medium">{item.desc}</p>
             </div>
           ))}
         </div>
+
         {whySection?.items && (
-          <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-            {whySection.items.map((item) => (
-              <li key={item} className="flex items-start gap-3 text-sm leading-7 text-slate-700">
-                <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-teal-500/15 text-xs text-teal-700" aria-hidden>
-                  ✓
-                </span>
-                {item}
-              </li>
-            ))}
-          </ul>
+          <div className="mt-12 rounded-2xl bg-white border border-slate-200/80 p-6 md:p-8 shadow-sm">
+            <h3 className="text-xl font-bold text-navy-900 mb-6 border-r-4 border-teal-500 pr-3">
+              لماذا يثق المرضى في عيادتنا؟
+            </h3>
+            <ul className="grid gap-4 sm:grid-cols-2">
+              {whySection.items.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-sm md:text-base leading-7 text-slate-700 font-medium">
+                  <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-teal-500/10 text-teal-600 border border-teal-500/20 text-xs" aria-hidden>
+                    ✓
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
       </Section>
 
       {/* Services preview */}
       <Section
+        variant="dark"
         title="التخصصات الجراحية"
-        subtitle="ستة تخصصات رئيسية تغطي احتياجاتك الجراحية"
-        altBg
+        subtitle="ستة تخصصات رئيسية تغطي احتياجاتك الجراحية بأحدث التقنيات الطبية المعترف بها دولياً"
       >
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
-            <ServiceCard key={service.id} service={service} />
+            <ServiceCard key={service.id} service={service} theme="dark" />
           ))}
-        </div>
-        <div className="mt-8 text-center">
-          <Button to="/services" variant="secondary">
-            عرض جميع التخصصات
-          </Button>
         </div>
       </Section>
 
       {/* About preview */}
       <Section
+        variant="white"
         title="عن الدكتور حاتم النجار"
         subtitle={pages.about.introAr}
       >
-        <div className="grid items-center gap-10 md:grid-cols-2">
-          <div className="space-y-4">
-            <p className="leading-8 text-slate-600">
-              {pages.about.sections[0]?.body}
+        <div className="grid items-start gap-10 md:grid-cols-12">
+          <div className="space-y-6 md:col-span-7">
+            <p className="leading-8 text-slate-600 text-base md:text-lg">
+              {pages.about.introAr}
             </p>
-            <Button to="/about" variant="primary">
-              المزيد عن الدكتور
-            </Button>
+            <div className="pt-2">
+              <Button to="/about" variant="primary" size="lg">
+                المزيد عن المسيرة الطبية والدراسات العلمية
+              </Button>
+            </div>
           </div>
-          <div className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm">
-            <h3 className="mb-4 font-bold text-navy-900">المؤهلات العلمية</h3>
-            <ul className="space-y-3">
+
+          <div className="rounded-2xl border-r-4 border-r-teal-500 border-y border-l border-slate-200/80 bg-slate-50/50 p-6 md:p-8 shadow-sm md:col-span-5">
+            <h3 className="mb-5 font-bold text-navy-900 text-lg border-b border-slate-200/60 pb-3">أبرز المؤهلات العلمية والمهنية</h3>
+            <ul className="space-y-4">
               {(pages.about.sections[1]?.items ?? []).slice(0, 4).map((item) => (
-                <li key={item} className="flex gap-3 text-sm leading-7 text-slate-600">
-                  <span className="text-teal-600" aria-hidden>●</span>
+                <li key={item} className="flex gap-3 text-sm leading-7 text-slate-700 font-medium">
+                  <span className="text-teal-600 text-xs mt-1" aria-hidden>✦</span>
                   {item}
                 </li>
               ))}
@@ -151,62 +177,69 @@ export function HomePage() {
       </Section>
 
       {/* FAQ preview */}
-      <Section title="أسئلة شائعة" subtitle="إجابات سريعة عن أكثر ما يُسأل" altBg>
-        <FAQAccordion items={previewFaqs} />
-        <div className="mt-6 text-center">
-          <Link to="/faq" className="text-sm font-medium text-teal-600 hover:text-teal-700">
-            عرض جميع الأسئلة ←
-          </Link>
+      <Section variant="tint" title="الأسئلة الشائعة عن العيادة" subtitle="إجابات سريعة ومبسطة عن أكثر ما يسأل عنه مراجعو عيادتنا">
+        <div className="max-w-4xl mx-auto">
+          <FAQAccordion items={previewFaqs} />
+          <div className="mt-8 text-center">
+            <Link to="/faq" className="inline-flex items-center gap-1.5 text-base font-bold text-teal-600 hover:text-teal-700 transition-colors duration-200">
+              تصفح كافة الأسئلة الشائعة
+              <span aria-hidden className="text-lg">←</span>
+            </Link>
+          </div>
         </div>
       </Section>
 
       {/* Articles preview */}
       <Section
-        title="آخر المقالات الطبية"
-        subtitle="معلومات موثوقة من فريق العيادة"
+        variant="white"
+        title="آخر المقالات الطبية والتوعوية"
+        subtitle="معلومات طبية موثوقة ومحررة بعناية فائقة لتوعية زوار العيادة بصحتهم"
       >
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-3">
           {latestArticles.map((article) => (
             <ArticleCard key={article.id} article={article} />
           ))}
         </div>
-        <div className="mt-8 text-center">
+        <div className="mt-10 text-center">
           <Button to="/blog" variant="secondary">
-            جميع المقالات
+            تصفح المدونة الطبية بالكامل
           </Button>
         </div>
       </Section>
 
       {/* Contact CTA */}
-      <Section altBg>
-        <div className="grid gap-8 md:grid-cols-2 md:items-center">
-          <div>
-            <h2 className="text-2xl font-bold text-navy-900">زورونا في العيادة</h2>
-            <p className="mt-3 leading-8 text-slate-600">{site.addressAr}</p>
-            <p className="mt-2 text-sm text-slate-500">
-              {site.clinicHours.daysAr} — {site.clinicHours.hoursAr}
-            </p>
-            <div className="mt-6">
-              <CtaBlock variant="inline" />
+      <Section variant="tint" className="border-t-0">
+        <div className="grid gap-10 md:grid-cols-12 md:items-center">
+          <div className="md:col-span-7 space-y-4">
+            <h2 className="text-2xl font-bold text-navy-900">يسعدنا استقبالكم في العيادة</h2>
+            <p className="text-base md:text-lg leading-8 text-slate-700 font-medium">{site.addressAr}</p>
+            <div className="inline-flex items-center gap-2 rounded-xl bg-teal-500/10 border border-teal-500/15 px-4 py-2 text-sm font-bold text-teal-800">
+              🗓️ {site.clinicHours.daysAr} — {site.clinicHours.hoursAr}
+            </div>
+            <div className="mt-6 pt-4 border-t border-slate-200/50">
+              <CtaBlock variant="inline" trackingLocation="homepage_contact_cta" />
             </div>
           </div>
-          <a
-            href={site.mapsUrl}
-            target="_blank"
-            rel="noreferrer noopener"
-            className="flex items-center justify-center gap-3 rounded-2xl border-2 border-dashed border-teal-500/30 bg-teal-500/5 p-8 text-center transition-colors hover:border-teal-500/50 hover:bg-teal-500/10"
-          >
-            <span className="text-4xl" aria-hidden>📍</span>
-            <div>
-              <p className="font-bold text-navy-900">افتح الموقع على خرائط Google</p>
-              <p className="mt-1 text-sm text-slate-600">مصر الجديدة، القاهرة</p>
-            </div>
-          </a>
+
+          <div className="md:col-span-5 w-full">
+            <a
+              href={site.mapsUrl}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="group flex flex-col items-center justify-center gap-4 rounded-3xl border-2 border-dashed border-teal-500/30 bg-white p-8 text-center transition-all duration-300 hover:border-teal-500/50 hover:bg-teal-500/5 shadow-md shadow-teal-500/2"
+            >
+              <span className="text-5xl transition-transform duration-300 group-hover:scale-110" aria-hidden>📍</span>
+              <div>
+                <p className="font-extrabold text-navy-900 text-lg group-hover:text-teal-700 transition-colors duration-200">افتح الموقع على خرائط Google</p>
+                <p className="mt-1.5 text-sm font-semibold text-slate-500">مصر الجديدة، القاهرة، مصر</p>
+              </div>
+            </a>
+          </div>
         </div>
       </Section>
 
-      <div className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
-        <CtaBlock />
+      <div className="mx-auto max-w-6xl px-4 pb-16 sm:px-6 mt-6">
+        <CtaBlock trackingLocation="homepage_bottom_cta" />
       </div>
     </>
   );
